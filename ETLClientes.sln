@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36301.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "readcsv", "readcsv.csproj", "{445120C1-A177-403B-B142-1C89AC314A04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETL.Infraestructura", "ETL.Infraestructura.csproj", "{445120C1-A177-403B-B142-1C89AC314A04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETL.Domain", "..\ETL.Domain\ETL.Domain.csproj", "{57017161-5B06-49F0-8072-B3895BB31F09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETL.ConsoleApp", "..\ETL.ConsoleApp\ETL.ConsoleApp.csproj", "{5A6B74E0-3CF9-41FE-B629-81763DA9736E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{445120C1-A177-403B-B142-1C89AC314A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{445120C1-A177-403B-B142-1C89AC314A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{445120C1-A177-403B-B142-1C89AC314A04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57017161-5B06-49F0-8072-B3895BB31F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57017161-5B06-49F0-8072-B3895BB31F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57017161-5B06-49F0-8072-B3895BB31F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57017161-5B06-49F0-8072-B3895BB31F09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A6B74E0-3CF9-41FE-B629-81763DA9736E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A6B74E0-3CF9-41FE-B629-81763DA9736E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A6B74E0-3CF9-41FE-B629-81763DA9736E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A6B74E0-3CF9-41FE-B629-81763DA9736E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
