@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36301.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETL.Infraestructura", "ETL.Infraestructura.csproj", "{445120C1-A177-403B-B142-1C89AC314A04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETL.Domain", "ETL.Domain\ETL.Domain.csproj", "{98A61D83-286C-D535-5AE8-17FE2B33E69B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETL.Domain", "..\ETL.Domain\ETL.Domain.csproj", "{57017161-5B06-49F0-8072-B3895BB31F09}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETL.Infraestructura", "ETL.Infraestructura\ETL.Infraestructura.csproj", "{A9150461-DADA-8C3D-80DB-E98BA93A7E1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETL.ConsoleApp", "..\ETL.ConsoleApp\ETL.ConsoleApp.csproj", "{5A6B74E0-3CF9-41FE-B629-81763DA9736E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ETL.ConsoleApp", "ETL.ConsoleApp\ETL.ConsoleApp.csproj", "{7D8695E6-FC02-3A82-5DD9-C6A72006A291}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{445120C1-A177-403B-B142-1C89AC314A04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{445120C1-A177-403B-B142-1C89AC314A04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{445120C1-A177-403B-B142-1C89AC314A04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{445120C1-A177-403B-B142-1C89AC314A04}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57017161-5B06-49F0-8072-B3895BB31F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57017161-5B06-49F0-8072-B3895BB31F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57017161-5B06-49F0-8072-B3895BB31F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57017161-5B06-49F0-8072-B3895BB31F09}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A6B74E0-3CF9-41FE-B629-81763DA9736E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A6B74E0-3CF9-41FE-B629-81763DA9736E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A6B74E0-3CF9-41FE-B629-81763DA9736E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A6B74E0-3CF9-41FE-B629-81763DA9736E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98A61D83-286C-D535-5AE8-17FE2B33E69B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A61D83-286C-D535-5AE8-17FE2B33E69B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A61D83-286C-D535-5AE8-17FE2B33E69B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A61D83-286C-D535-5AE8-17FE2B33E69B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9150461-DADA-8C3D-80DB-E98BA93A7E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9150461-DADA-8C3D-80DB-E98BA93A7E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9150461-DADA-8C3D-80DB-E98BA93A7E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9150461-DADA-8C3D-80DB-E98BA93A7E1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D8695E6-FC02-3A82-5DD9-C6A72006A291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D8695E6-FC02-3A82-5DD9-C6A72006A291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D8695E6-FC02-3A82-5DD9-C6A72006A291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D8695E6-FC02-3A82-5DD9-C6A72006A291}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
