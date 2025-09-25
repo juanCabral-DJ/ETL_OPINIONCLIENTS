@@ -25,6 +25,7 @@ namespace ETL_Clientes.Services.Maps
                         var digits = Regex.Replace(rawId, @"\D", "");
                         return int.TryParse(digits, out var id) ? id : 0;
                     });
+                Map(m => m.TipoFuente).Name("TipoFuente");
                 Map(m => m.FechaCarga).Name("FechaCarga")
                 .Convert(row =>
                 { 
@@ -39,7 +40,7 @@ namespace ETL_Clientes.Services.Maps
                      
                     return DateTime.Now.Date;
                 });
-            Map(m => m.TipoFuente).Name("TipoFuente");
+            
                 
             }
           }

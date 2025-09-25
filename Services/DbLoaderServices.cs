@@ -87,12 +87,12 @@ namespace ETL_Clientes.Services
         private void BuildInsertFuenteDatos(List<Fuente_datos> fuente_Datos, SqlConnection connection)
         {
             var dataTable = new DataTable();
-            dataTable.Columns.Add("IdFuente", typeof(int));
-            dataTable.Columns.Add("FechaCarga", typeof(DateTime));
+            dataTable.Columns.Add("IdFuente", typeof(int)); 
             dataTable.Columns.Add("TipoFuente", typeof(string));
+            dataTable.Columns.Add("FechaCarga", typeof(DateTime));
             foreach (var fuente in fuente_Datos)
             {
-                dataTable.Rows.Add(fuente.IdFuente, fuente.FechaCarga, fuente.TipoFuente);
+                dataTable.Rows.Add(fuente.IdFuente, fuente.TipoFuente, fuente.FechaCarga);
             }
 
 
