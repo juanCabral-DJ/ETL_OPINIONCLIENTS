@@ -45,7 +45,7 @@ namespace ETL_Clientes.Services
                     {
                         csv.Context.RegisterClassMap<MapT>();
                         var records = csv.GetRecords<T>().ToList();
-                        return records;
+                        return records; 
                     }
                 }
                 else
