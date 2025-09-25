@@ -2,12 +2,13 @@
 using ETL_Clientes.Class;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ETL_Clientes.Services
+namespace ETL_Clientes.Services.Maps
 {
         public sealed class FuenteMap : ClassMap<Fuente_datos>
         {
@@ -24,9 +25,22 @@ namespace ETL_Clientes.Services
                         var digits = Regex.Replace(rawId, @"\D", "");
                         return int.TryParse(digits, out var id) ? id : 0;
                     });
-
-                Map(m => m.TipoFuente).Name("TipoFuente");
-                Map(m => m.FechaCarga).Name("FechaCarga");
+                Map(m => m.FechaCarga).Name("FechaCarga")
+                .Convert(row =>
+                { 
+                    var fechaString = row.Row.GetField<string>("FechaCarga");
+                     
+                    string formato = "yyyy/M/dd";
+                     
+                    if (DateTime.TryParseExact(fechaString, formato, CultureInfo.InvariantCulture, DateTimeStyles.None, out var fecha))
+                    { 
+                        return fecha;
+                    }
+                     
+                    return DateTime.Now.Date;
+                });
+            Map(m => m.TipoFuente).Name("TipoFuente");
+                
             }
           }
         
