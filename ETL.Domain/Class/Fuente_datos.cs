@@ -10,6 +10,6 @@ namespace ETL_Clientes.Class
     {
         public int IdFuente { get; set; } 
         public string TipoFuente { get; set; }
-        public DateTime FechaCarga { get; set; }
+        public DateTime FechaCarga { get; set; } 
     }
 }

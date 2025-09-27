@@ -86,13 +86,20 @@ namespace ETL_Clientes.Services
             return clean;
         }
 
-        public static List<webReviews> TransformReviews(List<webReviews> data)
+        public static List<webReviews> TransformReviews(List<webReviews> data, List<Clientes> clientes, List<Productos> productos)
         {
-            // 1. Eliminar duplicados por Idreview
+            // 1. Eliminar duplicados por Idreview y verificar que existan los IdCliente e IdProducto 
+            var clientesIds = clientes.Select(c => c.IdCliente).ToHashSet();
+            var productosIds = productos.Select(p => p.IdProducto).ToHashSet();
+
             var clean = data
                 .GroupBy(r => r.IdReview)
                 .Select(g => g.First())
+                .Where(r => r.IdReview > 0
+                            && clientesIds.Contains(r.IdCliente)
+                            && productosIds.Contains(r.IdProducto))
                 .ToList();
+
             // 2. Eliminar registros nulos en PK
             clean = clean.Where(r => r.IdReview > 0 && r.IdCliente > 0 && r.IdProducto > 0).ToList();
 
@@ -117,15 +124,23 @@ namespace ETL_Clientes.Services
             return clean;
         }
 
-        public static List<surveys> TransformSurveys(List<surveys> data)
+        public static List<surveys> TransformSurveys(List<surveys> data, List<Clientes> clientes, List<Productos> productos)
         {
-            // 1. Eliminar duplicados por IdOpinion
+            // 1. Eliminar duplicados por IdOpinion y verificar que existan los IdCliente e IdProducto
+            var clientesIds = clientes.Select(c => c.IdCliente).ToHashSet();
+            var productosIds = productos.Select(p => p.IdProducto).ToHashSet();
+
             var clean = data
                 .GroupBy(s => s.IdOpinion)
                 .Select(g => g.First())
+                .Where(s => s.IdOpinion > 0
+                            && clientesIds.Contains(s.IdCliente)
+                            && productosIds.Contains(s.IdProducto))
                 .ToList();
+
             // 2. Eliminar registros nulos en PK
             clean = clean.Where(s => s.IdOpinion > 0 && s.IdProducto > 0 && s.IdCliente > 0).ToList();
+
             // 3. Normalización de datos
             foreach (var s in clean)
             {
@@ -149,15 +164,23 @@ namespace ETL_Clientes.Services
             return clean;
         }
 
-        public static List<Social_comments> TransformComments(List<Social_comments> data)
+        public static List<Social_comments> TransformComments(List<Social_comments> data, List<Clientes> clientes, List<Productos> productos)
         {
-            // 1. Eliminar duplicados por IdComment
+            // 1. Eliminar duplicados por IdComment y verificar que existan los IdCliente e IdProducto
+            var clientesIds = clientes.Select(c => c.IdCliente).ToHashSet();
+            var productosIds = productos.Select(p => p.IdProducto).ToHashSet();
+
             var clean = data
                 .GroupBy(c => c.IdComment)
                 .Select(g => g.First())
+                .Where(c => c.IdComment > 0
+                            && clientesIds.Contains(c.IdCliente)
+                            && productosIds.Contains(c.IdProducto))
                 .ToList();
+
             // 2. Eliminar registros nulos en PK
             clean = clean.Where(c => c.IdComment > 0 && c.IdCliente > 0 && c.IdProducto > 0).ToList();
+
             // 3. Normalización de datos
             foreach (var c in clean)
             {

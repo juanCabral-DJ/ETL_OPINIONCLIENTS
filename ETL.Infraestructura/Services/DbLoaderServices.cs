@@ -1,26 +1,28 @@
-﻿using ETL_Clientes.Class; 
+﻿
+using ETL_Clientes.Class;
+using ETL_Clientes.Services.Maps;
+using Microsoft.Data.SqlClient;  
 using System;
 using System.Collections.Generic;
 using System.Data; 
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Data.SqlClient;  
 
 namespace ETL_Clientes.Services
 {
-    public class DbLoaderServices 
+    public class DbLoaderServices
     {
         public readonly string _connectionString;
-        public DbLoaderServices(string connectionString) 
+        public DbLoaderServices(string connectionString)
         {
             _connectionString = connectionString;
         }
 
-        public void LoadData(List<surveys> surveys, List<Social_comments> social_Comments, List<Clientes> clientes,
-            List<Productos> productos, List<webReviews> webReviews, List<Fuente_datos> fuente_Datos)
+        public void LoadData(List<Clientes> clientes, List<Productos> productos, List<surveys> surveys, 
+            List<Social_comments> social_Comments, List<webReviews> webReviews, List<Fuente_datos> fuente_Datos)
         {
-             
+
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
@@ -33,7 +35,7 @@ namespace ETL_Clientes.Services
                 BuildInsertWebReviews(webReviews, connection);
                 BuildInsertsurveys(surveys, connection);
                 BuildInsertComments(social_Comments, connection);
-                
+
             }
         }
 
@@ -45,7 +47,7 @@ namespace ETL_Clientes.Services
             dataTable.Columns.Add("IdProducto", typeof(int));
             dataTable.Columns.Add("Fuente", typeof(string));
             dataTable.Columns.Add("Fecha", typeof(DateTime));
-            dataTable.Columns.Add("Comentario", typeof(string)); 
+            dataTable.Columns.Add("Comentario", typeof(string));
 
             foreach (var comment in social_Comments)
             {
@@ -56,7 +58,7 @@ namespace ETL_Clientes.Services
             using (var buildcopy = new SqlBulkCopy(connection))
             {
                 buildcopy.DestinationTableName = "SocialComments";
-                
+
                 buildcopy.WriteToServer(dataTable);
             }
         }
@@ -87,7 +89,7 @@ namespace ETL_Clientes.Services
         private void BuildInsertFuenteDatos(List<Fuente_datos> fuente_Datos, SqlConnection connection)
         {
             var dataTable = new DataTable();
-            dataTable.Columns.Add("IdFuente", typeof(int)); 
+            dataTable.Columns.Add("IdFuente", typeof(int));
             dataTable.Columns.Add("TipoFuente", typeof(string));
             dataTable.Columns.Add("FechaCarga", typeof(DateTime));
             foreach (var fuente in fuente_Datos)
@@ -152,7 +154,7 @@ namespace ETL_Clientes.Services
             dataTable.Columns.Add("Comentario", typeof(string));
             dataTable.Columns.Add("Clasificación", typeof(string));
             dataTable.Columns.Add("PuntajeSatisfacción", typeof(int));
-            dataTable.Columns.Add("Fuente", typeof(string)); 
+            dataTable.Columns.Add("Fuente", typeof(string));
             foreach (var survey in surveys)
             {
                 dataTable.Rows.Add(survey.IdOpinion, survey.IdCliente, survey.IdProducto, survey.Fecha, survey.Comentario,
